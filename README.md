@@ -39,13 +39,15 @@ Each script prints a line of text and the current date/time.
 docker compose up --build
 ```
 
-To run a single language:
+## To run a single language:
 ```bash
 docker compose up --build php
 docker compose up --build python
 docker compose up --build ruby
 docker compose up --build node
 docker compose up --build lua
+docker compose up --build rust
+docker compose up --build go
 ```
 
 ## Notes
@@ -53,3 +55,8 @@ Lua image notes:
 - The `lua:5.4` and `lua:5.4-alpine` tags were not available on Docker Hub.
 - The solution was to use `alpine:3.20` and install Lua via `apk add --no-cache lua5.4`.
 - On Alpine, the executable is `lua5.4`, so the Dockerfile runs `lua5.4 script.lua`.
+
+## Compiled languages notes (Go, Rust):
+- I added Go and Rust to compare build-time vs run-time workflows.
+- I used multi-stage Docker builds to compile binaries in a build image and run them in a small Alpine runtime image.
+- I learned that compiled languages need source code available at build time, unlike interpreted languages that can be mounted at runtime.

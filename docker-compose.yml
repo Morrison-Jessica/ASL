@@ -33,3 +33,16 @@ services:
       dockerfile: Dockerfile.lua
     volumes:
       - ./lua/script.lua:/app/script.lua
+  go:
+    build:
+      context: .
+      dockerfile: Dockerfile.go
+    volumes:
+      - ./go/script.go:/src/script.go
+  rust:
+    build:
+      context: .
+      dockerfile: Dockerfile.rust
+    volumes:
+      - ./rust/Cargo.toml:/src/Cargo.toml
+      - ./rust/src:/src/src
