@@ -5,7 +5,8 @@ This project demonstrates running simple scripts in multiple programming languag
 Each script prints a line of text and the current date/time.
 
 ## Languages Included
--
+- PHP
+- Python
 
 ## Folder Structure
 
