@@ -8,6 +8,7 @@ Each script prints a line of text and the current date/time.
 - PHP
 - Python
 - Ruby
+- Node.js
 
 ## Folder Structure
 

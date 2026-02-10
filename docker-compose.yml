@@ -12,11 +12,17 @@ services:
       dockerfile: Dockerfile.python
     volumes:
       - ./python/script.py:/app/script.py
-      
+
   ruby:
     build:
       context: .
       dockerfile: Dockerfile.ruby
     volumes:
       - ./ruby/script.rb:/app/script.rb
-
+      
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+    volumes:
+      - ./node/script.js:/app/script.js
