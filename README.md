@@ -7,6 +7,7 @@ Each script prints a line of text and the current date/time.
 ## Languages Included
 - PHP
 - Python
+- Ruby
 
 ## Folder Structure
 
