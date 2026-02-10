@@ -19,10 +19,17 @@ services:
       dockerfile: Dockerfile.ruby
     volumes:
       - ./ruby/script.rb:/app/script.rb
-      
+
   node:
     build:
       context: .
       dockerfile: Dockerfile.node
     volumes:
       - ./node/script.js:/app/script.js
+      
+  lua:
+    build:
+      context: .
+      dockerfile: Dockerfile.lua
+    volumes:
+      - ./lua/script.lua:/app/script.lua
