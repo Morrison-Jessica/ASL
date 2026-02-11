@@ -10,16 +10,26 @@ Each script prints a line of text and the current date/time.
 - Ruby
 - Node.js
 - Lua
+- Go
+- Rust
+- Java
 
 ## Folder Structure
 ```
 .
 ├── docker-compose.yml
+├── Dockerfile.go
+├── Dockerfile.java
 ├── Dockerfile.lua
 ├── Dockerfile.node
 ├── Dockerfile.php
 ├── Dockerfile.python
 ├── Dockerfile.ruby
+├── Dockerfile.rust
+├── go/
+│   └── script.go
+├── java/
+│   └── Hello.java
 ├── lua/
 │   └── script.lua
 ├── node/
@@ -28,6 +38,10 @@ Each script prints a line of text and the current date/time.
 │   └── script.php
 ├── python/
 │   └── script.py
+├── rust/
+│   ├── Cargo.toml
+│   └── src/
+│       └── main.rs
 └── ruby/
     └── script.rb
 ```
@@ -48,6 +62,7 @@ docker compose up --build node
 docker compose up --build lua
 docker compose up --build rust
 docker compose up --build go
+docker compose up --build java
 ```
 
 ## Notes
@@ -60,3 +75,8 @@ Lua image notes:
 - I added Go and Rust to compare build-time vs run-time workflows.
 - I used multi-stage Docker builds to compile binaries in a build image and run them in a small Alpine runtime image.
 - I learned that compiled languages need source code available at build time, unlike interpreted languages that can be mounted at runtime.
+
+## Java notes:
+- I added Java to understand the JVM workflow: compile `.java` files to `.class` bytecode with the JDK.
+- I used a multi-stage Docker build: JDK for compilation, then a smaller JRE image to run the bytecode.
+- I learned that Java needs the JVM at runtime, even though the source is compiled.

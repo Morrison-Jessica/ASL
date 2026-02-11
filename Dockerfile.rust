@@ -1,10 +1,12 @@
 FROM rust:1.76-alpine AS build
+# Build stage: compile Rust with Cargo
 WORKDIR /src
 COPY rust/Cargo.toml .
 COPY rust/src ./src
 RUN cargo build --release
 
 FROM alpine:3.20
+# Runtime stage: runs compiled binary
 WORKDIR /app
 COPY --from=build /src/target/release/asl-rust ./app
 CMD ["./app"]
