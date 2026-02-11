@@ -13,11 +13,13 @@ Each script prints a line of text and the current date/time.
 - Go
 - Rust
 - Java
+- C
 
 ## Folder Structure
 ```
 .
 ├── docker-compose.yml
+├── Dockerfile.c
 ├── Dockerfile.go
 ├── Dockerfile.java
 ├── Dockerfile.lua
@@ -26,6 +28,8 @@ Each script prints a line of text and the current date/time.
 ├── Dockerfile.python
 ├── Dockerfile.ruby
 ├── Dockerfile.rust
+├── c/
+│   └── main.c
 ├── go/
 │   └── script.go
 ├── java/
@@ -63,10 +67,10 @@ docker compose up --build lua
 docker compose up --build rust
 docker compose up --build go
 docker compose up --build java
+docker compose up --build c
 ```
 
-## Notes
-Lua image notes:
+## Notes Lua image
 - The `lua:5.4` and `lua:5.4-alpine` tags were not available on Docker Hub.
 - The solution was to use `alpine:3.20` and install Lua via `apk add --no-cache lua5.4`.
 - On Alpine, the executable is `lua5.4`, so the Dockerfile runs `lua5.4 script.lua`.
@@ -80,3 +84,8 @@ Lua image notes:
 - I added Java to understand the JVM workflow: compile `.java` files to `.class` bytecode with the JDK.
 - I used a multi-stage Docker build: JDK for compilation, then a smaller JRE image to run the bytecode.
 - I learned that Java needs the JVM at runtime, even though the source is compiled.
+
+## C notes:
+- I added C to practice a minimal compiled workflow with a tiny runtime image.
+- I used a multi-stage Docker build: GCC to compile, then Alpine to run the native binary.
+- I learned that C compiles directly to a native executable with no VM required.

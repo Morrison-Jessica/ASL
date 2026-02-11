@@ -48,10 +48,17 @@ services:
     volumes:
       - ./rust/Cargo.toml:/src/Cargo.toml
       - ./rust/src:/src/src
-      
+
   java:
     build:
       context: .
       dockerfile: Dockerfile.java
     volumes:
       - ./java/Hello.java:/src/Hello.java
+      
+  c:
+    build:
+      context: .
+      dockerfile: Dockerfile.c
+    volumes:
+      - ./c/main.c:/src/main.c
