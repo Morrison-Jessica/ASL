@@ -89,3 +89,6 @@ docker compose up --build c
 - I added C to practice a minimal compiled workflow with a tiny runtime image.
 - I used a multi-stage Docker build: GCC to compile, then Alpine to run the native binary.
 - I learned that C compiles directly to a native executable with no VM required.
+
+# AI disclosure
+- AI tools were used to help organize and edit code & README.
